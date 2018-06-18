@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import sun.security.krb5.internal.APOptions;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -102,7 +101,7 @@ public class FileObserver {
         }
     }
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 5000)
     public void check() throws InterruptedException {
         if (watchService != null) {
             System.out.println("check.....");

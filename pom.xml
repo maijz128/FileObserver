@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>FileObserver</name>
-    <description>Demo project for Spring Boot</description>
+    <description>FileObserver project by MaiJZ</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -29,6 +29,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 将Servlet容器(Tomcat)改用Undertow，减少内存占用-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
         <dependency>
@@ -49,6 +60,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <layout>ZIP</layout>
+                    <!--去除在生产环境中不变的依赖-->
+                    <excludeGroupIds>
+                        <!--org.jboss.logging,-->
+                        <!--org.apache.logging.log4j,-->
+                        <!--org.apache.logging.slf4j-->
+                        <!--org.springframework.boot,-->
+                        <!--org.springframework,-->
+                        <!--org.springframework.data,-->
+                        <!--org.apache.tomcat.embed-->
+                    </excludeGroupIds>
+                </configuration>
             </plugin>
         </plugins>
     </build>
