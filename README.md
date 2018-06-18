@@ -29,3 +29,12 @@ java -jar fileobserver-0.1.0.jar --folder="c:/dev"
 ```
 
 是Spring Boot 的写法，可以通过 `@Value("${a1}"）` 获取
+
+
+
+### 细节
+
+默认端口：8193
+
+
+
