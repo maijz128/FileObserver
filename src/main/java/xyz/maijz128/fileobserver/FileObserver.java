@@ -11,6 +11,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -23,8 +24,14 @@ public class FileObserver {
 
 
     @Value("${folder}")
-    String folder;
+    private String folder;
 
+    // 频道
+    @Value("${destination}")
+    private  String destination;
+
+    @Value("${payload}")
+    private  String payload;
 
     /**
      * 消息发送工具
@@ -33,10 +40,7 @@ public class FileObserver {
     private SimpMessagingTemplate template;
 
 
-    // 频道
-    private final String destination = "/topic/getState";
 
-    private final String payload = "IS_CHANGED";
 
     private WatchService watchService;
 
@@ -77,6 +81,10 @@ public class FileObserver {
         if (this.folder != null) {
             this.path = this.folder;
         }
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public void watch() {

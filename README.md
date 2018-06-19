@@ -36,5 +36,7 @@ java -jar fileobserver-0.1.0.jar --folder="c:/dev"
 
 默认端口：8193
 
+文件映射：`http://localhost:8193/file/{filepath}`
+
 
 
