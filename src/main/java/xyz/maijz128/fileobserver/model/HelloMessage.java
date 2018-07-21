@@ -1,4 +1,4 @@
-package xyz.maijz128.fileobserver;
+package xyz.maijz128.fileobserver.model;
 
 public class HelloMessage {
 

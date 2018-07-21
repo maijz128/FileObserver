@@ -1,10 +1,9 @@
-package xyz.maijz128.fileobserver;
+package xyz.maijz128.fileobserver.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import xyz.maijz128.fileobserver.service.FileObserver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +30,7 @@ public class FileController {
 //        System.out.println(request.getContextPath());
 //        System.out.println(request.getServletPath());
 
-        System.out.println("find file: " + filename);
+//        System.out.println("find file: " + filename);
 
         String path = fileObserver.getPath();
         File file = Paths.get(path, filename).toFile();
@@ -49,7 +48,7 @@ public class FileController {
         inputStream.close();
 
 //        response.setContentType("image/png");
-        String cType = java.nio.file.Files.probeContentType(file.toPath());
+        String cType = Files.probeContentType(file.toPath());
         response.setContentType(cType);
 
         OutputStream stream = response.getOutputStream();

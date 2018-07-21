@@ -40,7 +40,7 @@ public class InitTask implements CommandLineRunner {
         try {
             serverHost = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
-            System.err.println("get server host Exception e:" + e);
+            System.err.println("get service host Exception e:" + e);
         }
 
         System.out.println(" Project: " + projectName + " ver." + projectVersion);

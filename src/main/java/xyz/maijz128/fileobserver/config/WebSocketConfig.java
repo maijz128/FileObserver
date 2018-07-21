@@ -1,4 +1,4 @@
-package xyz.maijz128.fileobserver;
+package xyz.maijz128.fileobserver.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
