@@ -18,8 +18,8 @@ import java.nio.file.Paths;
 import java.util.Collections;
 
 @SpringBootApplication
-@EnableAsync
-@EnableScheduling
+//@EnableAsync
+//@EnableScheduling
 public class Application {
 
     @Autowired

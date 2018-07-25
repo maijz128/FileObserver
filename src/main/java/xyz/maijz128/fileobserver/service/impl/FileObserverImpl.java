@@ -51,7 +51,7 @@ public class FileObserverImpl extends FileObserverBase implements FileObserver {
         }
     }
 
-    @Scheduled(fixedDelay = 5000)
+//    @Scheduled(fixedDelay = 5000)
     public void _check() throws InterruptedException {
         if (watchService != null) {
             System.out.println("check.....");

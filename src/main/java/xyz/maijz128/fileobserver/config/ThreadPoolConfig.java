@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 自定义线程池
  */
-@Configuration
+//@Configuration
 public class ThreadPoolConfig implements AsyncConfigurer {
 
     /**

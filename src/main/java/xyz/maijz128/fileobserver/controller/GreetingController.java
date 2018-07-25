@@ -6,7 +6,7 @@ import org.springframework.web.util.HtmlUtils;
 import xyz.maijz128.fileobserver.model.Greeting;
 import xyz.maijz128.fileobserver.model.HelloMessage;
 
-@Controller
+//@Controller
 public class GreetingController {
 
 
