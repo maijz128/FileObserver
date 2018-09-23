@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import xyz.maijz128.fileobserver.service.FileObserver;
+import xyz.maijz128.fileobserver.utils.FileType;
+import xyz.maijz128.fileobserver.utils.VideoStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -30,13 +33,19 @@ public class FileController {
 //        System.out.println(request.getContextPath());
 //        System.out.println(request.getServletPath());
 
-//        System.out.println("find file: " + filename);
+        filename = URLDecoder.decode(filename, "utf8");
+
+        System.out.println("find file: " + filename);
 
         String path = fileObserver.getPath();
         File file = Paths.get(path, filename).toFile();
 
         if (file.exists()) {
-            writeStream(file, response);
+            if(FileType.isVideo(filename)){
+                VideoStream.processRequest(file, request, response);
+            }else{
+                writeStream(file, response);
+            }
         }
     }
 
